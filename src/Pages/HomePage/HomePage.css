@@ -1,6 +1,19 @@
-.subheading{
-    margin: 1rem 0;
-    font-size: 1.2rem;
+.heading-container {
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.heading {
+  color: var(--white);
+}
+
+.subheading {
+  margin: 1rem 0;
+  font-size: 1.2rem;
 }
 
 .shadow-card {
@@ -31,5 +44,5 @@
 }
 
 .card-btn:hover {
- opacity: .8;
+  opacity: 0.8;
 }
