@@ -44,12 +44,12 @@ button:hover {
   cursor: pointer;
   opacity: 0.9;
   width: 9rem;
-  padding: 1rem .8rem;
-  border-radius: .5rem;
+  padding: 1rem 0.8rem;
+  border-radius: 0.5rem;
   font-size: 1rem;
 }
 
-.log-in-btn{
+.log-in-btn {
   margin: 1rem 0;
 }
 
@@ -76,12 +76,6 @@ hr {
 
 .have-account > a:hover {
   color: var(--hr-color);
-}
-
-.forgot-password {
-  margin-left: 12rem;
-  color: var(--white);
-  text-decoration: none;
 }
 
 .checkbox {
