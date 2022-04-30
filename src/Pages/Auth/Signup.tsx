@@ -8,6 +8,12 @@ export const Signup = () =>{
         <div className="container">
           <h1>Sign-up</h1>
           <hr />
+
+          <label><b>First Name</b></label>
+          <input type="text" placeholder="Enter First Name" name="firstname" required />
+
+          <label><b>Last Name</b></label>
+          <input type="text" placeholder="Enter Last Name" name="lastname" required />
   
           <label><b>Email address</b></label>
           <input type="text" placeholder="Enter Email" name="email" required />
@@ -16,7 +22,7 @@ export const Signup = () =>{
           <input
             type="password"
             placeholder="*******"
-            name="psw"
+            name="password"
             required
           />
   
