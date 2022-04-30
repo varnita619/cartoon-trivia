@@ -5,7 +5,7 @@ export const Signup = () =>{
     return(
         <div>
              <main className="main-container">
-        <div className="container">
+        <div className="auth-container">
           <h1>Sign-up</h1>
           <hr />
 
