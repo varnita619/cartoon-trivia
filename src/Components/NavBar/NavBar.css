@@ -1,0 +1,23 @@
+.nav-bar{
+    background-color: var(--primary-color);
+    border-bottom: 1px solid var(--hr-color);
+    position: sticky;
+    top: 0;
+}
+
+.nav-bar_heading{
+    color: var(--secondary-color);
+}
+
+.nav-user-image{
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+}
+
+.anchor-btn {
+    text-decoration: none;
+    color: var(--white);
+    background-color: var(--secondary-color);
+    padding: 0.5rem;
+  }
