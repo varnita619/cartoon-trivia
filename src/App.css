@@ -27,6 +27,15 @@ body{
   letter-spacing: 0.05rem;
 }
 
+.main-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  margin-top: 5rem;
+  flex-wrap: wrap;
+}
+
 .heading-container{
   color: var(--white);
   display: flex;

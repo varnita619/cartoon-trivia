@@ -8,7 +8,7 @@ export const NavBar = () => {
         <div className="nav-bar_row">
           <div className="nav-bar_section--align-start">
             <button className="nav-bar_action-item"> </button>
-            <span className="nav-bar_heading">Quizyy</span>
+            <span className="nav-bar_heading">Cartoon Trivia</span>
           </div>
 
           <div className="nav-bar_section--align-end">

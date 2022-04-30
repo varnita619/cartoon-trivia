@@ -1,0 +1,104 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+  color: var(--white);
+  width: 30rem;
+}
+
+input[type="text"],
+input[type="password"] {
+  padding: 0.5rem;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: var(--hr-color);
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  background-color: var(--white);
+  outline: none;
+}
+
+.terms-condition {
+  color: var(--secondary-color);
+  margin-left: 0.5rem;
+}
+
+.clearfix {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button:hover {
+  opacity: 0.5;
+}
+
+.btn {
+  background-color: var(--secondary-color);
+  margin: 1.5rem 0;
+  border: none;
+  cursor: pointer;
+  opacity: 0.9;
+  width: 9rem;
+  padding: 1rem .8rem;
+  border-radius: .5rem;
+  font-size: 1rem;
+}
+
+.log-in-btn{
+  margin: 1rem 0;
+}
+
+.signup-btn {
+  text-decoration: none;
+  color: var(--white);
+  background-color: var(--secondary-color);
+  padding: 0.5rem;
+}
+
+hr {
+  border: 1px solid var(--hr-color);
+  margin-bottom: 25px;
+}
+
+.have-account {
+  text-align: center;
+}
+
+.have-account > a {
+  color: var(--secondary-color);
+  text-decoration: none;
+}
+
+.have-account > a:hover {
+  color: var(--hr-color);
+}
+
+.forgot-password {
+  margin-left: 12rem;
+  color: var(--white);
+  text-decoration: none;
+}
+
+.checkbox {
+  margin-bottom: 1rem;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 400px) {
+  .btn {
+    margin-right: 12rem;
+  }
+  input[type="text"],
+  input[type="password"] {
+    width: 17rem;
+  }
+  .have-account {
+    margin-top: 1rem;
+    margin-right: 12rem;
+  }
+}
