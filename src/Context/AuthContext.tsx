@@ -1,0 +1,41 @@
+import React, { createContext, useContext, useState } from "react";
+
+type userType = {
+    id: string;
+    firstName: string;
+    lastName: string;
+    email: string;
+    password: string;
+    authProvider: string;
+}
+
+
+type AuthContextType = { 
+    authToken: string;
+    setAuthToken: (arg: string) => void;
+    authUser: userType;
+    setAuthUser: (arg: string) => void;
+}
+
+const AuthContext = createContext<AuthContextType>({} as AuthContextType)
+
+const AuthProvider = ({ children }: { children: React.ReactNode }) => {
+    const localStorageAuth = localStorage.getItem("token")
+    const localStorageUser = localStorage.getItem("user")
+    const [authToken, setAuthToken] = useState<string>(
+        localStorageAuth ? localStorageAuth : ''
+    );
+    const [authUser, setAuthUser] = useState(
+        localStorageUser ? JSON.parse(localStorageUser) : null
+    );
+    return (
+        <AuthContext.Provider value={{ authToken, setAuthToken, authUser, setAuthUser }}>
+            {children}
+        </AuthContext.Provider>
+    )
+}
+
+const useAuth = () => useContext(AuthContext);
+
+export { useAuth, AuthProvider }
+
