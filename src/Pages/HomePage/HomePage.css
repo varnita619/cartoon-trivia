@@ -19,6 +19,7 @@
 .shadow-card {
   background-color: var(--subheading);
   cursor: pointer;
+  box-shadow: 4px 8px 8px 4px var(--shadow-color);
 }
 
 .shadow-card:hover {
