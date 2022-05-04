@@ -1,0 +1,49 @@
+.heading-container {
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.heading {
+  color: var(--white);
+}
+
+.subheading {
+  margin: 1rem 0;
+  font-size: 1.2rem;
+}
+
+.shadow-card {
+  background-color: var(--subheading);
+  cursor: pointer;
+  box-shadow: 4px 8px 8px 4px var(--shadow-color);
+}
+
+.shadow-card:hover {
+  box-shadow: 4px 4px 8px var(--secondary-color);
+}
+
+.shadow-card-details {
+  color: var(--white);
+}
+
+.card-btn {
+  background-color: var(--secondary-color);
+  padding: 0.2rem;
+  cursor: pointer;
+  margin-bottom: 0.5rem;
+}
+
+.card-btn > a {
+  text-decoration: none;
+  color: var(--primary-color);
+  padding: 1.5rem;
+  font-size: 1.2rem;
+}
+
+.card-btn:hover {
+  opacity: 0.8;
+}

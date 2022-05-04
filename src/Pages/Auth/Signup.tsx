@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { collection, where, query, getDocs } from 'firebase/firestore'
+import { collection, where, query, getDocs } from "firebase/firestore";
 import { Link, useNavigate } from "react-router-dom";
 import "./Auth.css";
 import { useAuth } from "../../Context/AuthContext";
@@ -31,21 +31,23 @@ export const Signup = () => {
       );
       if (response) {
         const responseUser: any = response?.user;
-        localStorage.setItem("token", JSON.stringify(responseUser?.accessToken)
+        localStorage.setItem(
+          "token",
+          JSON.stringify(responseUser?.accessToken)
         );
         setAuthToken(responseUser?.accessToken);
         const queries = query(
-          collection(db, 'users'),
+          collection(db, "users"),
           where("uid", "==", responseUser.uid)
-      )
-      const querySnapshot = await getDocs(queries);
-      querySnapshot.forEach((doc) => {
+        );
+        const querySnapshot = await getDocs(queries);
+        querySnapshot.forEach((doc) => {
           const userObj: any = doc.data();
-          localStorage.setItem('user', JSON.stringify(userObj));
-          setAuthUser(userObj)
-      })
+          localStorage.setItem("user", JSON.stringify(userObj));
+          setAuthUser(userObj);
+        });
 
-        navigate('/login');
+        navigate("/login");
       }
     } catch (error) {
       console.log(error);
@@ -55,7 +57,7 @@ export const Signup = () => {
   return (
     <div>
       <main className="main-container">
-        <div className="container">
+        <div className="auth-container">
           <h1>Sign-up</h1>
           <hr />
 
