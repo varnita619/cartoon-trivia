@@ -1,6 +1,6 @@
-import { signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut } from "firebase/auth";
+import { signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut} from "firebase/auth";
 import { addDoc, collection } from 'firebase/firestore'
-import { auth, db } from "../Config/firebaseConfig";
+import { auth, db} from "../Config/firebaseConfig";
 
 export const loginFunction = async (email: string, password: string) => {
     try {
@@ -20,8 +20,6 @@ export const signupFunction = async (firstName: string, lastName: string, email:
             firstName,
             lastName,
             email,
-            quizzes: [],
-            totalScore: 0
         })
         return response
     } catch (error) {

@@ -16,6 +16,7 @@ export const Signup = () => {
     password: "",
   });
 
+
   const signupHandler = async (
     firstName: string,
     lastName: string,
@@ -27,7 +28,7 @@ export const Signup = () => {
         firstName,
         lastName,
         email,
-        password
+        password,
       );
       if (response) {
         const responseUser: any = response?.user;
@@ -47,7 +48,7 @@ export const Signup = () => {
           setAuthUser(userObj);
         });
 
-        navigate("/login");
+        navigate('/rules');
       }
     } catch (error) {
       console.log(error);
