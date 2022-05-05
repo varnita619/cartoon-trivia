@@ -3,7 +3,7 @@ import "./App.css";
 import { Signup, Login, HomePage, RulesPage, Questions, Result } from "./Pages";
 import { Footer, NavBar } from "./Components";
 
-function App() {
+export const App: React.FC = () =>  {
   return (
     <>
       <NavBar />

@@ -7,14 +7,14 @@ type userType = {
     email: string;
     password: string;
     authProvider: string;
-}
+} | null;
 
 
 type AuthContextType = { 
     authToken: string;
-    setAuthToken: (arg: string) => void;
+    setAuthToken: (arg0: string) => void;
     authUser: userType;
-    setAuthUser: (arg: string) => void;
+    setAuthUser: (arg0: string) => void;
 }
 
 const AuthContext = createContext<AuthContextType>({} as AuthContextType)

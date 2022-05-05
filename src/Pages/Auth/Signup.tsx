@@ -17,36 +17,28 @@ export const Signup = () => {
   });
 
 
-  const signupHandler = async (
-    firstName: string,
-    lastName: string,
-    email: string,
-    password: string
-  ) => {
+  const signupHandler =  async( firstName: string, lastName: string, email: string, password: string) => {
     try {
-      const response = await signupFunction(
-        firstName,
-        lastName,
-        email,
-        password,
-      );
+      const response =  signupFunction( firstName, lastName, email, password);
+      console.log("aiuasgdiusa")
       if (response) {
-        const responseUser: any = response?.user;
+        const responseUser: any = response;
+        // console.log(responseUser)
         localStorage.setItem(
           "token",
           JSON.stringify(responseUser?.accessToken)
         );
         setAuthToken(responseUser?.accessToken);
-        const queries = query(
-          collection(db, "users"),
-          where("uid", "==", responseUser.uid)
-        );
-        const querySnapshot = await getDocs(queries);
-        querySnapshot.forEach((doc) => {
-          const userObj: any = doc.data();
-          localStorage.setItem("user", JSON.stringify(userObj));
-          setAuthUser(userObj);
-        });
+        // const queries = query(
+        //   collection(db, "users"),
+        //   where("uid", "==", responseUser.uid)
+        // );
+        // const querySnapshot =  getDocs(queries);
+        // querySnapshot.forEach((doc) => {
+        //   const userObj: any = doc.data();
+        //   localStorage.setItem("user", JSON.stringify(userObj));
+        //   setAuthUser(userObj);
+        // });
 
         navigate('/rules');
       }
