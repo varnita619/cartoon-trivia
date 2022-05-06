@@ -43,7 +43,7 @@ export const HomePage = () => {
             </p>
           </div>
           <div className="card-btn">
-            <Link to="/rules.html">Play Now</Link>
+            <Link to="/rules">Play Now</Link>
           </div>
         </div>
 
@@ -63,7 +63,7 @@ export const HomePage = () => {
             </p>
           </div>
           <div className="card-btn">
-            <Link to="/rules.html">Play Now</Link>
+            <Link to="/rules">Play Now</Link>
           </div>
         </div>
       </div>
