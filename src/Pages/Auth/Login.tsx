@@ -5,6 +5,7 @@ import "./Auth.css";
 import { useAuth } from "../../Context/AuthContext";
 import { loginFunction } from "../../AllFunctions/AllFunctions";
 import { db } from "../../Config/firebaseConfig";
+import { toast } from "react-hot-toast";
 
 export const Login = () => {
   const [login, setLogin] = useState({email:"", password:""});
@@ -41,6 +42,7 @@ export const Login = () => {
               localStorage.setItem("user", JSON.stringify(userObj))
           })
           navigate('/')
+          toast.success("Logged in Successfully",{position:'bottom-right'})
 
       }
       }catch(error){

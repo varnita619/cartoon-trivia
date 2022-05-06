@@ -5,6 +5,7 @@ import "./Auth.css";
 import { useAuth } from "../../Context/AuthContext";
 import { signupFunction } from "../../AllFunctions/AllFunctions";
 import { db } from "../../Config/firebaseConfig";
+import { toast } from "react-hot-toast";
 
 export const Signup = () => {
   const navigate = useNavigate();
@@ -20,7 +21,8 @@ export const Signup = () => {
   const signupHandler = async (name: string, email: string, password: string) => {
     try {
         const response = await signupFunction(name, email, password)
-        console.log(name,email,password)
+
+        // console.log(await signupFunction(name, email, password))
         if (response) {
             const responseUser: any = response?.user;
 
@@ -37,6 +39,7 @@ export const Signup = () => {
                 setAuthUser(userObj)
             })
             navigate('/rules')
+            toast.success("User Signedup Successfully",{position:'top-right'})
 
         }
     } catch (error) {
