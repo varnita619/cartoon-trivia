@@ -20,7 +20,7 @@ export const HomePage = () => {
 
           <div className="shadow-card-details">
             <h4>Doraemon</h4>
-            <p>Are you a doraemon lover? Play this for fun!!</p>
+            <p>It is a Japanese manga series. Are you a doraemon lover? Play this for fun!!</p>
           </div>
           <div className="card-btn">
             <Link to="/rules">Play Now</Link>
@@ -59,7 +59,7 @@ export const HomePage = () => {
             <h4>Mickey Mouse</h4>
             <p>
               Mickey Mouse is an American animated cartoon character co-created
-              in 1928 by Walt Disney.
+              in 1928.
             </p>
           </div>
           <div className="card-btn">

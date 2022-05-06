@@ -47,3 +47,7 @@
 .card-btn:hover {
   opacity: 0.8;
 }
+
+.card-image > img{
+  height: 13rem;
+}
