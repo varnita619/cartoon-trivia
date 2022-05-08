@@ -1,41 +1,35 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useState, useEffect } from "react";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../Config/firebaseConfig";
 
-type userType = {
-    id: string;
-    firstName: string;
-    lastName: string;
-    email: string;
-    password: string;
-    authProvider: string;
-} | null;
+type AuthContextType = {
+  token: string;
+  setToken: (arg0: string) => void;
+};
 
-
-type AuthContextType = { 
-    authToken: string;
-    setAuthToken: (arg0: string) => void;
-    authUser: userType;
-    setAuthUser: (arg0: string) => void;
-}
-
-const AuthContext = createContext<AuthContextType>({} as AuthContextType)
+const AuthContext = createContext<AuthContextType>({} as AuthContextType);
 
 const AuthProvider = ({ children }: { children: React.ReactNode }) => {
-    const localStorageAuth = localStorage.getItem("token")
-    const localStorageUser = localStorage.getItem("user")
-    const [authToken, setAuthToken] = useState<string>(
-        localStorageAuth ? localStorageAuth : ''
-    );
-    const [authUser, setAuthUser] = useState(
-        localStorageUser ? JSON.parse(localStorageUser) : null
-    );
-    return (
-        <AuthContext.Provider value={{ authToken, setAuthToken, authUser, setAuthUser }}>
-            {children}
-        </AuthContext.Provider>
-    )
-}
+  const uId = JSON.parse(localStorage.getItem("uid") || "{}") || null;
+  const [token, setToken] = useState("");
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        localStorage.setItem("user", JSON.stringify(user));
+        user?.uid && localStorage.setItem("uid", JSON.stringify(user?.uid));
+        setToken(user?.uid);
+      }
+    });
+  }, []);
+
+  return (
+    <AuthContext.Provider value={{ token, setToken }}>
+      {children}
+    </AuthContext.Provider>
+  );
+};
 
 const useAuth = () => useContext(AuthContext);
 
-export { useAuth, AuthProvider }
-
+export { useAuth, AuthProvider };

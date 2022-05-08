@@ -2,6 +2,7 @@ import { signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut} fr
 import { addDoc, collection } from 'firebase/firestore'
 import { auth, db} from "../Config/firebaseConfig";
 
+
 export const loginFunction = async (email: string, password: string) => {
     try {
         const response = await signInWithEmailAndPassword(auth, email, password)
@@ -19,16 +20,18 @@ export const signupFunction = async (name: string, email: string, password: stri
             uid: user.uid,
             name,
             email,
-            quizzes: [],
-            totalScore: 0
         })
         return response
+        
     } catch (error) {
         console.error(error)
+        throw Error ("something went wrong")
     }
 }
 
 
 export const logout = () => {
     signOut(auth);
+    localStorage.removeItem("user")
+    localStorage.removeItem("uid")
 };

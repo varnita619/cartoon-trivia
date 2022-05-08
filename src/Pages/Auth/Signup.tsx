@@ -1,18 +1,13 @@
 import { useState } from "react";
-import { collection, where, query, getDocs } from "firebase/firestore";
 import { Link, useNavigate } from "react-router-dom";
 import "./Auth.css";
-import { useAuth } from "../../Context/AuthContext";
 import { signupFunction } from "../../AllFunctions/AllFunctions";
-import { db } from "../../Config/firebaseConfig";
 import { toast } from "react-hot-toast";
 
 export const Signup = () => {
   const navigate = useNavigate();
-  const { setAuthToken, setAuthUser } = useAuth();
   const [signup, setSignup] = useState({
     name: "",
-    // lastName: "",
     email: "",
     password: "",
   });
@@ -21,23 +16,7 @@ export const Signup = () => {
   const signupHandler = async (name: string, email: string, password: string) => {
     try {
         const response = await signupFunction(name, email, password)
-
-        // console.log(await signupFunction(name, email, password))
         if (response) {
-            const responseUser: any = response?.user;
-
-            localStorage.setItem('token', JSON.stringify(responseUser?.accessToken));
-            setAuthToken(responseUser?.accessToken)
-            const queries = query(
-                collection(db, 'users'),
-                where("uid", "==", responseUser.uid)
-            )
-            const querySnapshot = await getDocs(queries);
-            querySnapshot.forEach((doc) => {
-                const userObj: any = doc.data();
-                localStorage.setItem('user', JSON.stringify(userObj));
-                setAuthUser(userObj)
-            })
             navigate('/rules')
             toast.success("User Signedup Successfully",{position:'top-right'})
 
@@ -63,8 +42,10 @@ export const Signup = () => {
             name="name"
             required
             onChange={(e) =>
-              setSignup({ ...signup, name: e.target.value })
-            }
+              setSignup((prev) => ({
+                ...prev,
+                name: e.target.value,
+              }))}
           />
 
           {/* <label>
@@ -86,7 +67,12 @@ export const Signup = () => {
             placeholder="Enter Email"
             name="email"
             required
-            onChange={(e) => setSignup({ ...signup, email: e.target.value })}
+            // onChange={(e) => setSignup({ ...signup, email: e.target.value })}
+            onChange={(e) =>
+              setSignup((prev) => ({
+                ...prev,
+                email: e.target.value,
+              }))}
           />
 
           <label>
@@ -97,7 +83,11 @@ export const Signup = () => {
             placeholder="*******"
             name="password"
             required
-            onChange={(e) => setSignup({ ...signup, password: e.target.value })}
+            onChange={(e) =>
+              setSignup((prev) => ({
+                ...prev,
+                password: e.target.value,
+              }))}
           />
 
           <label>
