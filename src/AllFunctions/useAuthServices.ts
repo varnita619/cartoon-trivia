@@ -2,6 +2,7 @@ import { signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut} fr
 import { addDoc, collection } from 'firebase/firestore'
 import { auth, db} from "../Config/firebaseConfig";
 import { useAuth } from "../Context/AuthContext";
+import toast from "react-hot-toast";
 
 export const useAuthServices = () =>{
     const {setToken} = useAuth();
@@ -37,6 +38,7 @@ export const useAuthServices = () =>{
     localStorage.removeItem("user")
     localStorage.removeItem("uid")
     setToken("")
+    toast.success("User Logged out")
 };
 
  return {loginFunction, signupFunction, logout}
