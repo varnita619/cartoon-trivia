@@ -38,7 +38,7 @@ export const useAuthServices = () =>{
     localStorage.removeItem("user")
     localStorage.removeItem("uid")
     setToken("")
-    toast.success("User Logged out")
+    toast.success("User Logged out", {position:'top-right'})
 };
 
  return {loginFunction, signupFunction, logout}

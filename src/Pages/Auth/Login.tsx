@@ -1,34 +1,36 @@
 import { FormEvent, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Auth.css";
-import { useAuthServices } from "../../AllFunctions/useAuthServices";
+import { useAuthServices } from "../../Services/useAuthServices";
 import { toast } from "react-hot-toast";
 
 export const Login = () => {
   const [login, setLogin] = useState({ email: "", password: "" });
-  const {loginFunction} = useAuthServices();
+  const { loginFunction } = useAuthServices();
   const navigate = useNavigate();
 
   const LoginHandler = async (e: FormEvent) => {
     e.preventDefault();
     try {
       let response;
-      if ((e.target as HTMLInputElement).innerText === "Login as Guest") {
-        setLogin({
-          email: "test@gmail.com",
-          password: "test123",
-        });
-        response = await loginFunction("test@gmail.com", "test123");
-      } else {
-        response = await loginFunction(login.email, login.password);
-      }
+      response = await loginFunction(login.email, login.password);
       if (response) {
         navigate("/");
         toast.success("Logged in Successfully", { position: "top-right" });
       }
     } catch (error) {
-      console.log(error);
+      toast.error("Error occured in logging in!", { position: "top-right" });
     }
+  };
+
+  const loginWithGuestHandler = async () => {
+    let response;
+    setLogin({
+      email: "test@gmail.com",
+      password: "test123",
+    });
+    response = await loginFunction("test@gmail.com", "test123");
+    return response;
   };
   return (
     <div>
@@ -46,6 +48,7 @@ export const Login = () => {
             name="email"
             required
             onChange={(e) => setLogin({ ...login, email: e.target.value })}
+            value={login.email}
           />
 
           <label>
@@ -57,6 +60,7 @@ export const Login = () => {
             name="password"
             required
             onChange={(e) => setLogin({ ...login, password: e.target.value })}
+            value={login.password}
           />
 
           <div className="clearfix">
@@ -70,7 +74,7 @@ export const Login = () => {
             <button
               type="submit"
               className="btn log-in-btn"
-              onClick={(e) => LoginHandler(e)}
+              onClick={() => loginWithGuestHandler()}
             >
               Login as Guest
             </button>

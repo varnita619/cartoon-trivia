@@ -1,6 +1,6 @@
 import "./NavBar.css";
 import { Link } from "react-router-dom";
-import { useAuthServices } from "../../AllFunctions/useAuthServices";
+import { useAuthServices } from "../../Services/useAuthServices";
 import { useAuth } from "../../Context/AuthContext";
 
 export const NavBar = () => {
