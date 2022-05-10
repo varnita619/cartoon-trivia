@@ -10,7 +10,6 @@ type AuthContextType = {
 const AuthContext = createContext<AuthContextType>({} as AuthContextType);
 
 const AuthProvider = ({ children }: { children: React.ReactNode }) => {
-  const uId = JSON.parse(localStorage.getItem("uid") || "{}") || null;
   const [token, setToken] = useState("");
 
   useEffect(() => {
