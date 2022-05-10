@@ -1,9 +1,11 @@
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut} from "firebase/auth";
 import { addDoc, collection } from 'firebase/firestore'
 import { auth, db} from "../Config/firebaseConfig";
+import { useAuth } from "../Context/AuthContext";
 
-
-export const loginFunction = async (email: string, password: string) => {
+export const useAuthServices = () =>{
+    const {setToken} = useAuth();
+  const loginFunction = async (email: string, password: string) => {
     try {
         const response = await signInWithEmailAndPassword(auth, email, password)
         return response
@@ -12,7 +14,7 @@ export const loginFunction = async (email: string, password: string) => {
     }
 }
 
-export const signupFunction = async (name: string, email: string, password: string) => {
+  const signupFunction = async (name: string, email: string, password: string) => {
     try {
         const response = await createUserWithEmailAndPassword(auth, email, password)
         const user = response.user;
@@ -30,8 +32,12 @@ export const signupFunction = async (name: string, email: string, password: stri
 }
 
 
-export const logout = () => {
+  const logout = () => {
     signOut(auth);
     localStorage.removeItem("user")
     localStorage.removeItem("uid")
+    setToken("")
 };
+
+ return {loginFunction, signupFunction, logout}
+}

@@ -1,10 +1,11 @@
 import "./NavBar.css";
 import { Link } from "react-router-dom";
-import { logout } from "../../AllFunctions/AllFunctions";
+import { useAuthServices } from "../../AllFunctions/useAuthServices";
 import { useAuth } from "../../Context/AuthContext";
 
 export const NavBar = () => {
   const { token } = useAuth();
+  const {logout} = useAuthServices();
   return (
     <>
       <header className="nav-bar">

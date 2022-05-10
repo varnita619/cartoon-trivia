@@ -1,11 +1,12 @@
 import { FormEvent, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Auth.css";
-import { loginFunction } from "../../AllFunctions/AllFunctions";
+import { useAuthServices } from "../../AllFunctions/useAuthServices";
 import { toast } from "react-hot-toast";
 
 export const Login = () => {
   const [login, setLogin] = useState({ email: "", password: "" });
+  const {loginFunction} = useAuthServices();
   const navigate = useNavigate();
 
   const LoginHandler = async (e: FormEvent) => {

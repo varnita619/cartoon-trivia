@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Auth.css";
-import { signupFunction } from "../../AllFunctions/AllFunctions";
+import { useAuthServices } from "../../AllFunctions/useAuthServices";
 import { toast } from "react-hot-toast";
 
 export const Signup = () => {
   const navigate = useNavigate();
+  const {signupFunction} = useAuthServices();
   const [signup, setSignup] = useState({
     name: "",
     email: "",
