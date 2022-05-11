@@ -37,6 +37,12 @@
   margin: 1rem 0;
 }
 
+.play-btn{
+  background-color: inherit;
+  border: none;
+  padding: .4rem 1rem;
+}
+
 .card-btn > a {
   text-decoration: none;
   color: var(--primary-color);

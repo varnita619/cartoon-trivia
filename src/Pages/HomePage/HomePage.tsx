@@ -1,10 +1,22 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./HomePage.css";
 import { useAuth, useQuizContext } from "../../Context";
 
 export const HomePage = () => {
   const {quizState:{categories}} = useQuizContext();
   const {token} = useAuth();
+  const navigate = useNavigate();
+
+  const playQuizHandler = () =>{
+    if(token){
+      navigate('/rules')
+    }
+    else{
+      navigate('/login')
+    }
+   
+  }
+
   return (
     <>
       <div className="heading-container">
@@ -13,7 +25,6 @@ export const HomePage = () => {
       </div>
 
       <div className="main-container">
-        {token}
         {categories.map((eachElement: any) =>  (
         <div className="shadow-card" key={eachElement.id}>
           
@@ -29,7 +40,7 @@ export const HomePage = () => {
             <p>{eachElement.about}</p>
           </div>
           <div className="card-btn">
-            <button>Play Now</button>
+            <button className="play-btn" onClick={() => playQuizHandler()}>Play Now</button>
           </div>
         </div>
         ))}
