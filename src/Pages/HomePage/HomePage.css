@@ -37,10 +37,10 @@
   margin: 1rem 0;
 }
 
-.play-btn{
+.play-btn {
   background-color: inherit;
   border: none;
-  padding: .4rem 1rem;
+  padding: 0.4rem 1rem;
 }
 
 .card-btn > a {
@@ -54,6 +54,6 @@
   opacity: 0.8;
 }
 
-.card-image > img{
+.card-image > img {
   height: 13rem;
 }
