@@ -2,6 +2,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
+import { collection } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -20,4 +21,7 @@ const auth = getAuth(firebaseApp);
 // Initialize firestore
 const db = getFirestore(firebaseApp);
 
-export { auth, db, firebaseApp };
+// Getting Collection from firestore
+ const categoriesRef = collection(db, "quizCategories");
+
+export { auth, db, firebaseApp, categoriesRef };
