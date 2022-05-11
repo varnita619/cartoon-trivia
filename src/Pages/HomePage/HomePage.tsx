@@ -13,14 +13,14 @@ export const HomePage = () => {
         <div className="shadow-card">
           <div className="card-image">
             <img
-              src="https://variety.com/wp-content/uploads/2014/05/doraemon2.jpg?w=1024"
+              src="https://res.cloudinary.com/dqgqdj4jf/image/upload/v1651855959/Cartoon-Trivia/doraemon2_uxw2px.jpg"
               alt="card"
             />
           </div>
 
           <div className="shadow-card-details">
             <h4>Doraemon</h4>
-            <p>Are you a doraemon lover? Play this for fun!!</p>
+            <p>It is a Japanese manga series. Are you a doraemon lover? Play this for fun!!</p>
           </div>
           <div className="card-btn">
             <Link to="/rules">Play Now</Link>
@@ -30,7 +30,7 @@ export const HomePage = () => {
         <div className="shadow-card">
           <div className="card-image">
             <img
-              src="https://i1.wp.com/media.premiumtimesng.com/wp-content/files/2020/04/Tom-and-Jerry-e1587475883217.jpg?resize=800%2C570&ssl=1"
+              src="https://res.cloudinary.com/dqgqdj4jf/image/upload/v1651855945/Cartoon-Trivia/Tom-and-Jerry-e1587475883217_wbuxgl.jpg"
               alt="card"
             />
           </div>
@@ -43,7 +43,27 @@ export const HomePage = () => {
             </p>
           </div>
           <div className="card-btn">
-            <Link to="/rules.html">Play Now</Link>
+            <Link to="/rules">Play Now</Link>
+          </div>
+        </div>
+
+        <div className="shadow-card">
+          <div className="card-image">
+            <img
+              src="https://res.cloudinary.com/dqgqdj4jf/image/upload/v1651856365/Cartoon-Trivia/58907574_403_unvj7c.jpg"
+              alt="card"
+            />
+          </div>
+
+          <div className="shadow-card-details">
+            <h4>Mickey Mouse</h4>
+            <p>
+              Mickey Mouse is an American animated cartoon character co-created
+              in 1928.
+            </p>
+          </div>
+          <div className="card-btn">
+            <Link to="/rules">Play Now</Link>
           </div>
         </div>
       </div>

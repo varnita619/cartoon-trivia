@@ -1,7 +1,11 @@
 import "./NavBar.css";
 import { Link } from "react-router-dom";
+import { useAuthServices } from "../../Services/useAuthServices";
+import { useAuth } from "../../Context/AuthContext";
 
 export const NavBar = () => {
+  const { token } = useAuth();
+  const {logout} = useAuthServices();
   return (
     <>
       <header className="nav-bar">
@@ -12,16 +16,26 @@ export const NavBar = () => {
           </div>
 
           <div className="nav-bar_section--align-end">
-            <button className="login-btn">
-              <Link className="anchor-btn" to="/login">
-                Login
-              </Link>
-            </button>
-            <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNiQ63wXcfaE7w3wFexsqcuvwGwevpQHfEvw&usqp=CAU"
-              alt="user"
-              className="nav-user-image"
-            />
+            {token ? (
+              <button className="login-btn anchor-btn" onClick={() => logout()}>
+                Logout
+              </button>
+            ) : (
+              <button className="login-btn">
+                <Link className="anchor-btn" to="/login">
+                  Login
+                </Link>
+              </button>
+            )}
+            {token ? (
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNiQ63wXcfaE7w3wFexsqcuvwGwevpQHfEvw&usqp=CAU"
+                alt="user"
+                className="nav-user-image"
+              />
+            ) : (
+              ""
+            )}
           </div>
         </div>
       </header>

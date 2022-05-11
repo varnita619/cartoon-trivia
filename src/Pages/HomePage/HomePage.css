@@ -34,7 +34,7 @@
   background-color: var(--secondary-color);
   padding: 0.2rem;
   cursor: pointer;
-  margin-bottom: 0.5rem;
+  margin: 1rem 0;
 }
 
 .card-btn > a {
@@ -46,4 +46,8 @@
 
 .card-btn:hover {
   opacity: 0.8;
+}
+
+.card-image > img{
+  height: 13rem;
 }
