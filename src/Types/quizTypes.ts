@@ -16,6 +16,10 @@ export type InitializeAction = {
 
 export type QuizInitialStateType = {
   categories: DocumentData;
+  quizzes: DocumentData;
+  currentQuizzes: DocumentData;
+  selectedOption: any;
+  answers: DocumentData;
 };
 
 export type GetCategoriesAction = {
@@ -25,9 +29,48 @@ export type GetCategoriesAction = {
   };
 };
 
-export type QuizzesActions = InitializeAction | GetCategoriesAction;
+// For Quiz Questions And Answers
+
+export type GetQuizAction = {
+  type: "GET_QUIZ";
+  payload: {
+    quizzes: DocumentData;
+  };
+};
+
+export type GetFilterQuiz = {
+  type: "GET_FILTER_QUIZ";
+  payload: {
+    currentQuizzes: DocumentData;
+  };
+};
+
+export type SetAnswers = {
+  type: "SET_ANSWERS";
+  payload: {
+    answers: DocumentData;
+  };
+};
+
+export type SelectedOptionType = {
+  type: "SELECT_OPTION";
+  payload: {
+    selectedOption: any;
+  };
+};
+
+export type QuizzesActions =
+  | InitializeAction
+  | GetCategoriesAction
+  | GetQuizAction
+  | GetFilterQuiz
+  | SetAnswers
+  | SelectedOptionType;
 
 export type QuizContextType = {
   quizState: QuizInitialStateType;
   quizDispatch: React.Dispatch<QuizzesActions>;
+  categoryQuiz: string;
+  setCategoryQuiz: Function;
+  // totalScoreOfUser: number
 };

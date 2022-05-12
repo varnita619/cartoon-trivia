@@ -1,5 +1,5 @@
 export type categoryTypes = {
-    thumbnail: any,
+    thumbnail: string,
     title: string,
     about: string
 }

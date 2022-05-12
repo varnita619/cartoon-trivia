@@ -24,4 +24,7 @@ const db = getFirestore(firebaseApp);
 // Getting Collection from firestore
  const categoriesRef = collection(db, "quizCategories");
 
-export { auth, db, firebaseApp, categoriesRef };
+//  Getting questions and answers from firestore
+const quizRef = collection(db, "allQuestions");
+
+export { auth, db, firebaseApp, categoriesRef, quizRef };

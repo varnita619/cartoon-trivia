@@ -2,16 +2,33 @@ import { useNavigate } from "react-router-dom";
 import "./HomePage.css";
 import { useAuth, useQuizContext } from "../../Context";
 
-export const HomePage = () => {
+const HomePage = () => {
   const {
-    quizState: { categories },
+    quizState: { categories, quizzes },
+    quizDispatch,
+    setCategoryQuiz,
   } = useQuizContext();
   const { token } = useAuth();
   const navigate = useNavigate();
 
-  const playQuizHandler = () => {
+  const playQuizHandler = (categoryTitle: string) => {
     if (token) {
       navigate("/rules");
+
+      const categoryBasedQuiz = quizzes?.filter(
+        ({ category }: { category: string }) => category === categoryTitle
+      );
+      setCategoryQuiz(categoryBasedQuiz);
+
+      type answerType = {
+        ans: string;
+      };
+
+      //Getting answers of filter quizzes
+      const allAnswer = categoryBasedQuiz?.map((each: answerType) => each.ans);
+      quizDispatch({ type: "SET_ANSWERS", payload: allAnswer });
+
+      quizDispatch({ type: "GET_FILTER_QUIZ", payload: categoryBasedQuiz });
     } else {
       navigate("/login");
     }
@@ -36,7 +53,10 @@ export const HomePage = () => {
               <p>{eachElement.about}</p>
             </div>
             <div className="card-btn">
-              <button className="play-btn" onClick={() => playQuizHandler()}>
+              <button
+                className="play-btn"
+                onClick={() => playQuizHandler(eachElement.title)}
+              >
                 Play Now
               </button>
             </div>
@@ -46,3 +66,5 @@ export const HomePage = () => {
     </>
   );
 };
+
+export { HomePage };
