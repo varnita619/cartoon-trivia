@@ -34,9 +34,9 @@
     width: 100%;
     margin-bottom: 2rem;
     background-color: var(--subheading);
-    padding: 1rem;
+    padding: 2rem;
     border-radius: 1rem;
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
   
   .btn-container {

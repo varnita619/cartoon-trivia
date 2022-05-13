@@ -24,7 +24,7 @@ export const Result = () => {
             </h2>
           </div>
 
-          <div className="options-container">
+          <div className="final-options-container">
             <p className="option">Lorem ipsum dolor sit.</p>
             <p className="option correct-option">Lorem ipsum dolor sit.</p>
             <p className="option">Lorem ipsum dolor sit.</p>

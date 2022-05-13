@@ -42,7 +42,6 @@ const QuizContextProvider = ({ children }: { children: React.ReactNode }) => {
             const quizzes: DocumentData | undefined = res.docs.map(element => {
                 return { ...element.data(), id: element.id };
             });
-            // console.log(quizzes) 
             
             if (quizzes) {
                  
