@@ -37,8 +37,8 @@ const HomePage = () => {
   return (
     <>
       <div className="heading-container">
-        <h1 className="heading">{categories.title}</h1>
-        <p className="subheading">{categories.about}</p>
+        <h1 className="heading">Welcome to the Cartoon Trivia!!</h1>
+        <p className="subheading">Play Quizzes and have fun...</p>
       </div>
 
       <div className="main-container">
