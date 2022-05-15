@@ -17,7 +17,6 @@ export const Questions = () => {
     if (currentIndex === currentQuizzes.length - 1) {
       navigate("/result");
     }
-    console.log(currentIndex, currentQuizzes.length);
     setCurrentIndex(currentIndex + 1);
     quizDispatch({ type: "SELECT_OPTION", payload: currentOption });
   };
@@ -39,7 +38,7 @@ export const Questions = () => {
           <div className="questions-container">
             <div className="questions-heading">
               <h3>Question: {currentIndex + 1}/5</h3>
-              <p>Score: 0</p>
+              {/* <p>Score: 0</p> */}
             </div>
             <div>
               <div className="question">
@@ -49,12 +48,12 @@ export const Questions = () => {
               <div className="options-container">
                 {option.map((eachOption: any, i: string) => (
                   <div key={i}>
-                    <p
-                      className="option"
+                    <Link to=''
+                      className="option option-hover"
                       onClick={() => optionHandler(eachOption)}
                     >
                       {eachOption.value}
-                    </p>
+                    </Link>
                   </div>
                 ))}
               </div>
