@@ -8,29 +8,41 @@ export const Footer = () => {
         <div className="footer-header">Made with ❤ by Varnita Makrariya</div>
         <ul className="social-links list-non-bullet">
           <li className="list-items-inline">
-            <Link className="link" to="https://github.com/varnita619">
+            <a
+              className="link"
+              href="https://github.com/varnita619"
+              target="_blank"
+              rel="noreferrer"
+            >
               <i
                 className="fab fa-github"
                 aria-hidden="true"
                 title="github"
               ></i>
               github
-            </Link>
+            </a>
           </li>
           <li className="list-items-inline">
-            <Link className="link" to="https://twitter.com/VarnitaMakrari1">
+            <a
+              className="link"
+              href="https://twitter.com/VarnitaMakrari1"
+              target="_blank"
+              rel="noreferrer"
+            >
               <i
                 className="fab fa-twitter"
                 aria-hidden="true"
                 title="twitter"
               ></i>
               twitter
-            </Link>
+            </a>
           </li>
           <li className="list-items-inline">
-            <Link
+            <a
               className="link"
-              to="https://www.linkedin.com/in/varnita-makrariya-307177191/"
+              href="https://www.linkedin.com/in/varnita-makrariya-307177191/"
+              target="_blank"
+              rel="noreferrer"
             >
               <i
                 className="fab fa-linkedin"
@@ -38,7 +50,7 @@ export const Footer = () => {
                 title="linkedin"
               ></i>
               linkedin
-            </Link>
+            </a>
           </li>
         </ul>
       </footer>
