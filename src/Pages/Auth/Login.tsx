@@ -30,6 +30,7 @@ export const Login = () => {
       password: "test123",
     });
     response = await loginFunction("test@gmail.com", "test123");
+    navigate("/");
     return response;
   };
   return (
