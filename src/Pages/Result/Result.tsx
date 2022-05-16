@@ -49,7 +49,11 @@ export const Result = () => {
               <div className="questions-heading">
                 <h3>Question: {questionIndex + 1}/5</h3>
                 <p>
-                  {selectedOption[questionIndex] === "" ? "Not Attempted" : ""}
+                  {selectedOption[questionIndex] === "" ? (
+                    <span className="wrong-option"> Not Attempted</span>
+                  ) : (
+                    ""
+                  )}
                 </p>
               </div>
 
