@@ -18,7 +18,7 @@ export const Signup = () => {
     try {
         const response = await signupFunction(name, email, password)
         if (response) {
-            navigate('/rules')
+            navigate('/login')
             toast.success("User Signedup Successfully",{position:'top-right'})
 
         }

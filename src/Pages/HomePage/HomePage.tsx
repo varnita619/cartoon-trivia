@@ -1,7 +1,39 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./HomePage.css";
+import { useAuth, useQuizContext } from "../../Context";
 
-export const HomePage = () => {
+const HomePage = () => {
+  const {
+    quizState: { categories, quizzes },
+    quizDispatch,
+    setCategoryQuiz,
+  } = useQuizContext();
+  const { token } = useAuth();
+  const navigate = useNavigate();
+
+  const playQuizHandler = (categoryTitle: string) => {
+    if (token) {
+      navigate("/rules");
+
+      const categoryBasedQuiz = quizzes?.filter(
+        ({ category }: { category: string }) => category === categoryTitle
+      );
+      setCategoryQuiz(categoryBasedQuiz);
+
+      type answerType = {
+        ans: string;
+      };
+
+      //Getting answers of filter quizzes
+      const allAnswer = categoryBasedQuiz?.map((each: answerType) => each.ans);
+      quizDispatch({ type: "SET_ANSWERS", payload: allAnswer });
+
+      quizDispatch({ type: "GET_FILTER_QUIZ", payload: categoryBasedQuiz });
+    } else {
+      navigate("/login");
+    }
+  };
+
   return (
     <>
       <div className="heading-container">
@@ -10,63 +42,29 @@ export const HomePage = () => {
       </div>
 
       <div className="main-container">
-        <div className="shadow-card">
-          <div className="card-image">
-            <img
-              src="https://res.cloudinary.com/dqgqdj4jf/image/upload/v1651855959/Cartoon-Trivia/doraemon2_uxw2px.jpg"
-              alt="card"
-            />
-          </div>
+        {categories.map((eachElement: any) => (
+          <div className="shadow-card" key={eachElement.id}>
+            <div className="card-image">
+              <img src={eachElement.thumbnail} alt="card" />
+            </div>
 
-          <div className="shadow-card-details">
-            <h4>Doraemon</h4>
-            <p>It is a Japanese manga series. Are you a doraemon lover? Play this for fun!!</p>
+            <div className="shadow-card-details">
+              <h4>{eachElement.title}</h4>
+              <p>{eachElement.about}</p>
+            </div>
+            <div className="card-btn">
+              <button
+                className="play-btn"
+                onClick={() => playQuizHandler(eachElement.title)}
+              >
+                Play Now
+              </button>
+            </div>
           </div>
-          <div className="card-btn">
-            <Link to="/rules">Play Now</Link>
-          </div>
-        </div>
-
-        <div className="shadow-card">
-          <div className="card-image">
-            <img
-              src="https://res.cloudinary.com/dqgqdj4jf/image/upload/v1651855945/Cartoon-Trivia/Tom-and-Jerry-e1587475883217_wbuxgl.jpg"
-              alt="card"
-            />
-          </div>
-
-          <div className="shadow-card-details">
-            <h4>Tom And Jerry</h4>
-            <p>
-              Have you enjoyed watching this cartoon? Refresh your memories by
-              playing this!
-            </p>
-          </div>
-          <div className="card-btn">
-            <Link to="/rules">Play Now</Link>
-          </div>
-        </div>
-
-        <div className="shadow-card">
-          <div className="card-image">
-            <img
-              src="https://res.cloudinary.com/dqgqdj4jf/image/upload/v1651856365/Cartoon-Trivia/58907574_403_unvj7c.jpg"
-              alt="card"
-            />
-          </div>
-
-          <div className="shadow-card-details">
-            <h4>Mickey Mouse</h4>
-            <p>
-              Mickey Mouse is an American animated cartoon character co-created
-              in 1928.
-            </p>
-          </div>
-          <div className="card-btn">
-            <Link to="/rules">Play Now</Link>
-          </div>
-        </div>
+        ))}
       </div>
     </>
   );
 };
+
+export { HomePage };

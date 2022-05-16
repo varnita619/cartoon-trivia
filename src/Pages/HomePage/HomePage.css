@@ -31,10 +31,16 @@
 }
 
 .card-btn {
-  background-color: var(--secondary-color);
   padding: 0.2rem;
   cursor: pointer;
   margin: 1rem 0;
+}
+
+.play-btn {
+  background-color: var(--secondary-color);
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.5rem;
 }
 
 .card-btn > a {
@@ -48,6 +54,6 @@
   opacity: 0.8;
 }
 
-.card-image > img{
+.card-image > img {
   height: 13rem;
 }
