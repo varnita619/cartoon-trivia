@@ -1,46 +1,66 @@
-# Getting Started with Create React App
+# Cartoon Trivia
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a func quizz app where you can relive your childhood memories by playing this game.
 
-## Available Scripts
+## Tech Stack used
 
-In the project directory, you can run:
+### For Frontend
+- React.js
+- Typescript
+- CSS
+- Pallet UI (My Component Library)
 
-### `npm start`
+### For Backend
+- Firebase
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Features
+- Home Page 
+- Quizes filtered by different categories
+- Rules page while attempting a quiz
+- MCQ based Quiz Question Page
+- Results page with answers and score
+- Authentication
+- Sign up
+- Login (with guest credentials as well)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Screen Shots
 
-### `npm test`
+### Home Page 
+- shows all the quizzes category wise
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![image](https://user-images.githubusercontent.com/66819239/168534742-833a8d1e-0aa0-4625-9b64-926579beecb1.png)
 
-### `npm run build`
+### Rules Page
+- shows rules user needs to keep in mind before playing the quiz
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![image](https://user-images.githubusercontent.com/66819239/168536380-6dd4f5f9-59c1-4961-80c6-8135f7b18147.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![image](https://user-images.githubusercontent.com/66819239/168534916-fd45232e-14a8-46d0-b269-c743361c09f0.png)
 
-### `npm run eject`
+### Questions Page
+- shows questions related to that category which user has choosen 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+![image](https://user-images.githubusercontent.com/66819239/168535067-f95871ca-eb51-4098-babe-13eb58e0ff19.png)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Results Page
+- shows correct options as well as options choosen by user with scores.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+![image](https://user-images.githubusercontent.com/66819239/168535979-3b35b976-23d3-4562-bf6a-c8d070453708.png)
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![image](https://user-images.githubusercontent.com/66819239/168536027-3a4ce866-cc59-459b-ab74-df754f99165a.png)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Login Page
+- to attempt any quiz user needs to login
+
+![image](https://user-images.githubusercontent.com/66819239/168536152-d88b377d-4cfa-43c4-9ac0-095ebb7ea72a.png)
+
+### Signup Page
+- users can create thier account
+
+![image](https://user-images.githubusercontent.com/66819239/168536507-3f540391-8327-4dd4-a968-24aa6ee68c3a.png)
+
+
