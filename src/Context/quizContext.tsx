@@ -10,9 +10,6 @@ const QuizContextProvider = ({ children }: { children: React.ReactNode }) => {
   const [quizState, quizDispatch] = useReducer(quizReducer, initialState);
   const [categoryQuiz, setCategoryQuiz] = useState("");
 
-  //Total score of the Specific user
-  // const totalScoreOfUser = data.reduce((sum: number, currentValue: any ) => sum + currentValue.score, 0)
-
   // Getting categories from firebase
 
   useEffect(() => {
