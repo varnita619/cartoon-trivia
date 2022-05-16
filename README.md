@@ -33,9 +33,6 @@ This is a func quizz app where you can relive your childhood memories by playing
 ### Rules Page
 - shows rules user needs to keep in mind before playing the quiz
 
-![image](https://user-images.githubusercontent.com/66819239/168536380-6dd4f5f9-59c1-4961-80c6-8135f7b18147.png)
-
-
 ![image](https://user-images.githubusercontent.com/66819239/168534916-fd45232e-14a8-46d0-b269-c743361c09f0.png)
 
 ### Questions Page
