@@ -15,7 +15,7 @@ export const useAuthServices = () => {
       const response = await signInWithEmailAndPassword(auth, email, password);
       return response;
     } catch (error) {
-      console.error(error);
+      toast.error("Error occured in Login", { position: "top-right" })
     }
   };
 
@@ -38,8 +38,7 @@ export const useAuthServices = () => {
       });
       return response;
     } catch (error) {
-      console.error(error);
-      throw Error("something went wrong");
+      toast.error("Error occured in Signup", { position: "top-right" })
     }
   };
 
