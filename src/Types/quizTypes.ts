@@ -59,13 +59,18 @@ export type SelectedOptionType = {
   };
 };
 
+export type ResetOption = {
+  type: "RESET_OPTION";
+};
+
 export type QuizzesActions =
   | InitializeAction
   | GetCategoriesAction
   | GetQuizAction
   | GetFilterQuiz
   | SetAnswers
-  | SelectedOptionType;
+  | SelectedOptionType
+  | ResetOption;
 
 export type QuizContextType = {
   quizState: QuizInitialStateType;

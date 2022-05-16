@@ -1,23 +1,26 @@
 import "./Result.css";
 import { useQuizContext } from "../../Context";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export const Result = () => {
   const {
     quizState: { currentQuizzes, selectedOption },
+    quizDispatch,
   } = useQuizContext();
+  const navigate = useNavigate();
 
-  const getScore = () => {
-    let score = 0;
+  console.log(selectedOption);
 
-    for (let i = 0; i < currentQuizzes.length; i++) {
-      if (selectedOption[i].isCorrect === true) {
-        score = score + 10;
-      }
-    }
-
-    return score;
+  const submitHandler = () => {
+    quizDispatch({ type: "RESET_OPTION" });
+    navigate("/", { replace: true });
   };
+
+  const score = selectedOption.reduce(
+    (score: number, currentOption: any) =>
+      currentOption.isCorrect ? score + 10 : score,
+    0
+  );
 
   return (
     <>
@@ -25,10 +28,19 @@ export const Result = () => {
         <div className="result-container">
           <div className="heading">
             <h1>Quiz Result</h1>
-            <h3>Congratulations🎉 You Won!! </h3>
-            <p>Your Score is: {getScore()}/50</p>
-            <button className="home-btn">
-              <Link to="/" className="home-link">Go To Home</Link>
+            {score < 30 ? (
+              <div>
+                <h3>You Lost 😞 Better Luck next time!! </h3>
+                <p>Your Score is: {score}/50</p>
+              </div>
+            ) : (
+              <div>
+                <h3>Congratulations🎉 You Won!! </h3>
+                <p>Your Score is: {score}/50</p>
+              </div>
+            )}
+            <button className="home-btn" onClick={() => submitHandler()}>
+              Submit
             </button>
           </div>
 
@@ -36,6 +48,9 @@ export const Result = () => {
             <div key={questionIndex}>
               <div className="questions-heading">
                 <h3>Question: {questionIndex + 1}/5</h3>
+                <p>
+                  {selectedOption[questionIndex] === "" ? "Not Attempted" : ""}
+                </p>
               </div>
 
               <div className="question">
@@ -46,7 +61,7 @@ export const Result = () => {
                 <div>
                   {eachQuestion.option.map((eachOption: any, i: number) => (
                     <div key={i}>
-                      {eachOption.isCorrect === true ? (
+                      {eachOption.isCorrect ? (
                         <p className="option correct-option">
                           {eachOption.value}
                         </p>

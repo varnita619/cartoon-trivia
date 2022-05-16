@@ -27,6 +27,11 @@ export const quizReducer = (
         ...state,
         selectedOption: [...state.selectedOption, action.payload],
       };
+      case "RESET_OPTION":
+        return{
+          ...state,
+          selectedOption: []
+        }
 
     case "SET_ANSWERS":
       return { ...state, answers: action.payload };
