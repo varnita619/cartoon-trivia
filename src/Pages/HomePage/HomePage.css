@@ -40,7 +40,7 @@
   background-color: var(--secondary-color);
   border: none;
   padding: 0.6rem 1.2rem;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
 }
 
 .card-btn > a {

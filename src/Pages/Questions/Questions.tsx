@@ -48,7 +48,8 @@ export const Questions = () => {
               <div className="options-container">
                 {option.map((eachOption: any, i: string) => (
                   <div key={i}>
-                    <Link to=''
+                    <Link
+                      to=""
                       className="option option-hover"
                       onClick={() => optionHandler(eachOption)}
                     >
