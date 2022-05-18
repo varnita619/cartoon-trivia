@@ -7,6 +7,12 @@
   width: 30rem;
 }
 
+.login-heading{
+  border-bottom: 1px solid var(--hr-color);
+  margin-bottom: 1.5rem;
+}
+
+
 input[type="text"],
 input[type="password"] {
   padding: 0.5rem;
@@ -29,8 +35,7 @@ input[type="password"]:focus {
 
 .clearfix {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content:space-around;
 }
 
 button:hover {
@@ -44,14 +49,13 @@ button:hover {
   cursor: pointer;
   opacity: 0.9;
   width: 9rem;
-  padding: 1rem 0.8rem;
+  padding: .7rem 0.6rem;
   border-radius: 0.5rem;
   font-size: 1rem;
 }
 
 .log-in-btn {
-  margin: 1rem 0;
-  margin-left: 2rem;
+  margin: .8rem 0;
 }
 
 .signup-btn {
@@ -84,16 +88,13 @@ hr {
 }
 
 /* Change styles for cancel button and signup button on extra small screens */
-@media screen and (max-width: 400px) {
-  .btn {
-    margin-right: 12rem;
-  }
+@media screen and (max-width: 430px) {
+
   input[type="text"],
   input[type="password"] {
-    width: 17rem;
+    width: 19rem;
   }
   .have-account {
     margin-top: 1rem;
-    margin-right: 12rem;
   }
 }

@@ -37,11 +37,10 @@ export const Login = () => {
     <div>
       <main className="main-container">
         <div className="auth-container">
-          <h1>Login</h1>
-          <hr />
+          <h1 className="login-heading">Login</h1>
 
           <label>
-            <b>Email address</b>
+            <b className="form-detail">Email address</b>
           </label>
           <input
             type="text"
