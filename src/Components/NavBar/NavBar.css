@@ -42,7 +42,7 @@
 
 @media only screen and (max-width: 600px) {
   .nav-bar_heading {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
   .anchor-btn {
     padding: 0.4rem;
@@ -51,5 +51,14 @@
   .nav-user-image {
     width: 2rem;
     height: 2rem;
+  }
+}
+
+@media only screen and (max-width: 430px){
+  .nav-bar_section--align-start{
+    padding: 0;
+  }
+  .heading-link{
+    font-size: 1.2rem;
   }
 }

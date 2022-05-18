@@ -4,7 +4,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 3rem;
+  text-align: center;
+  margin-top: 2rem;
 }
 
 .heading {
@@ -27,13 +28,14 @@
 }
 
 .shadow-card-details {
+  text-align: center;
   color: var(--white);
 }
 
 .card-btn {
   padding: 0.2rem;
   cursor: pointer;
-  margin: 1rem 0;
+  margin: .5rem 0;
 }
 
 .play-btn {
@@ -56,4 +58,19 @@
 
 .card-image > img {
   height: 13rem;
+}
+
+@media only screen and (max-width: 320px){
+  .heading{
+    font-size: 1.5rem;
+  }
+  .heading-container{
+    margin: .5rem;
+  }
+  .card-image > img{
+    height: 10rem;
+  }
+  .shadow-card-details{
+    margin-right: 0;
+  }
 }

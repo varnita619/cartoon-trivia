@@ -26,7 +26,7 @@ export const Result = () => {
     <>
       <main className="questions-wrapper">
         <div className="result-container">
-          <div className="heading">
+          <div className="result-heading">
             <h1>Quiz Result</h1>
             {score < 30 ? (
               <div>
@@ -35,13 +35,10 @@ export const Result = () => {
               </div>
             ) : (
               <div>
-                <h3>Congratulations🎉 You Won!! </h3>
-                <p>Your Score is: {score}/50</p>
+                <h3 className="result-message">Congratulations🎉 You Won!! </h3>
+                <p className="final-score">Your Score is: {score}/50</p>
               </div>
             )}
-            <button className="home-btn" onClick={() => submitHandler()}>
-              Submit
-            </button>
           </div>
 
           {currentQuizzes.map((eachQuestion: any, questionIndex: string) => (
@@ -87,6 +84,10 @@ export const Result = () => {
               </div>
             </div>
           ))}
+
+          <button className="submit-btn" onClick={() => submitHandler()}>
+            Submit
+          </button>
         </div>
       </main>
     </>

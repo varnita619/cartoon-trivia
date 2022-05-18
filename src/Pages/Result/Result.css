@@ -13,35 +13,36 @@
   color: var(--white);
 }
 
-.heading {
+.result-heading {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
   line-height: 3rem;
   border-bottom: 1px solid var(--hr-color);
 }
 
-.heading > h1 {
+.result-heading > h1 {
   color: var(--secondary-color);
 }
 
-.heading > h3 {
-  font-size: 1.5rem;
+.result-message {
+  font-size: 1.4rem;
 }
 
-.heading > p {
-  font-size: 1.2rem;
+.final-score{
+  font-size: 1.3rem;
 }
 
 .questions-heading {
   display: flex;
   justify-content: space-between;
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 .question {
-  margin-top: 1.5rem;
+  margin-top: 1.2rem;
 }
 
 .final-options-container {
@@ -53,7 +54,7 @@
 
 .option {
   width: 100%;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   background-color: var(--subheading);
   padding: 1rem;
   border-radius: 1rem;
@@ -68,17 +69,30 @@
   background-color: var(--danger-color);
 }
 
-.home-btn {
+.submit-btn {
   display: flex;
   border: none;
   background-color: var(--secondary-color);
   border-radius: 0.3rem;
   padding: 0.7rem;
-  align-self: flex-end;
+  align-self: center;
+  margin: 1rem 0;
 }
 
 .home-link {
   text-decoration: none;
   color: var(--white);
   font-size: 1rem;
+}
+
+@media only screen and (max-width: 430px){
+  .question{
+    font-size: .8rem;
+  }
+  .questions-container{
+    width: 100%;
+  }
+  .result-container{
+    width: 100%;
+  }
 }
